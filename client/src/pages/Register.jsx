@@ -56,7 +56,7 @@ const Register = () => {
     return (
         <div className="w-full flex font-roboto">
             {/* landing page section */}
-            <div className="landing-section w-[68%] bg-red-700">
+            <div className="landing-section w-[68%]">
                 <div className="w-full h-full flex flex-col gap-12 p-12">
                     <div className="flex gap-[5px]">
                         <CustomQLogo stroke="#ffffff" width={36} height={36} />
