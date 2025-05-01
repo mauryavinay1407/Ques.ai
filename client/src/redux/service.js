@@ -7,6 +7,10 @@ export const serviceApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: `${BASE_URL}/api`,
         credentials: "include",
+        prepareHeaders: (headers) => {
+            headers.set('Accept', 'application/json');
+            return headers;
+        },
     }),
     keepUnusedDataFor: 60 * 60 * 24 * 7,
     tagTypes: ["Projects", "Me","Transcripts"],
@@ -26,6 +30,13 @@ export const serviceApi = createApi({
                 body: data,
             }),
             invalidatesTags: ["Me"],
+            async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+                try {
+                    await queryFulfilled;
+                    // Force refresh all queries after login
+                    dispatch(serviceApi.util.resetApiState());
+                } catch {}
+            },
         }),
         myInfo: builder.query({
             query: () => ({
@@ -38,7 +49,10 @@ export const serviceApi = createApi({
                     const { data } = await queryFulfilled;
                     dispatch(addMyInfo(data));
                 } catch (error) {
-                    console.log(error);
+                    // Handle error silently in production
+                    if (process.env.NODE_ENV !== 'production') {
+                        console.error('MyInfo Error:', error);
+                    }
                 }
             },
         }),

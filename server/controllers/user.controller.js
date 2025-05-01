@@ -41,13 +41,15 @@ const userSignup = async (req, res) => {
         );
         if (!accesToken) {
             return res
-            .status(400)
+                .status(400)
                 .json({ msg: "Error while generating token !" });
-            }
+        }
         res.cookie("token", accesToken, {
-            maxAge: 1000 * 60 * 60 * 24 * 30,
+            maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days
             httpOnly: true,
-            secure: true,
+            secure: process.env.NODE_ENV === "production", // Only true in production
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+            path: "/",
         });
         res.status(201).json({
             msg: `User Registered in successfully ! hello ${result?.userName}`,
@@ -88,9 +90,11 @@ const userLogin = async (req, res) => {
                 .json({ msg: "Token not gemnerated in login !" });
         }
         res.cookie("token", accessToken, {
-            maxAge: 1000 * 60 * 60 * 24 * 30,
+            maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days
             httpOnly: true,
-            secure: true,
+            secure: process.env.NODE_ENV === "production", // Only true in production
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+            path: "/",
         });
         res.status(200).json({ msg: "User logged in succcessfully !" });
     } catch (err) {
@@ -111,9 +115,10 @@ const userMyInfo = async (req, res) => {
 const userLogout = async (req, res) => {
     try {
         const options = {
-            maxAge: 0,
             httpOnly: true,
-            secure: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+            path: "/",
         };
         res.status(200).clearCookie("token", options).json({
             msg: "logged out successfully",
@@ -134,9 +139,9 @@ const updateProfilePic = async (req, res) => {
         form.parse(req, async (err, fields, files) => {
             if (err) {
                 return res
-                .status(400)
+                    .status(400)
                     .json({ msg: "Error in formidable !", err: err });
-                }
+            }
             if (files.media) {
                 if (userExists.public_id) {
                     await cloudinary.uploader.destroy(
@@ -154,7 +159,7 @@ const updateProfilePic = async (req, res) => {
                     return res
                         .status(400)
                         .json({ msg: "Error while uploading pic !" });
-                    }
+                }
                 await User.findByIdAndUpdate(
                     req.user._id,
                     {
@@ -206,4 +211,11 @@ const updateInfo = async (req, res) => {
 };
 
 // export all user controllers
-module.exports = {userLogin,userSignup,userMyInfo,userLogout,updateProfilePic,updateInfo};
+module.exports = {
+    userLogin,
+    userSignup,
+    userMyInfo,
+    userLogout,
+    updateProfilePic,
+    updateInfo,
+};
