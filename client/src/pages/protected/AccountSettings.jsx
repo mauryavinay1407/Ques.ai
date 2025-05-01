@@ -50,6 +50,7 @@ const AccountSettings = () => {
                 error: "Failed to update profile",
             });
             await refetch();
+            window.location.reload();
             setIsUploading(false);
         }
     };
@@ -69,6 +70,7 @@ const AccountSettings = () => {
             error: "Failed to update profile",
         });
         await refetch();
+        window.location.reload();
         setIsSubmitting(false);
     };
 

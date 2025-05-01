@@ -78,7 +78,7 @@ const Upload = () => {
 
     if (isLoading) {
         return (
-            <div className="flex justify-center items-center h-screen">
+            <div className="flex justify-center items-center w-full h-screen">
                 <Spinner size="lg" />
             </div>
         );

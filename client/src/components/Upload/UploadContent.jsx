@@ -38,7 +38,11 @@ const UploadInput = ({ onClose, onUpdate, icon, text }) => {
     };
 
     if (isLoading) {
-        return <Spinner />;
+        return (
+            <div className="w-full h-full flex justify-center items-center">
+                <Spinner />;
+            </div>
+        );
     }
 
     return (
