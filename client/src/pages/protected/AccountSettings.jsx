@@ -78,7 +78,7 @@ const AccountSettings = () => {
             <UploadNavBar projectName="Settings" pageName="Account Settings" />
 
             <div className="my-6">
-                <h1 className="text-black text-3xl font-roboto font-bold flex items-center">
+                <h1 className="text-black text-2xl md:text-3xl font-roboto font-bold flex items-center">
                     <span
                         className="font-bold cursor-pointer"
                         onClick={() => navigate(-1)}
@@ -91,8 +91,8 @@ const AccountSettings = () => {
 
             <div className="flex flex-col md:flex-row md:items-start gap-6">
                 {/* Profile Picture */}
-                <div className="flex flex-col items-center">
-                    <div className="relative w-24 h-24 md:w-28 md:h-28  group cursor-pointer">
+                <div className="flex flex-col items-center mb-4 md:mb-0">
+                    <div className="relative w-24 h-24 md:w-28 md:h-28 group cursor-pointer">
                         {loadingProfilePic ? (
                             <div className="flex items-center justify-center w-full h-full bg-gray-200 rounded-full">
                                 <Spinner />
@@ -139,7 +139,7 @@ const AccountSettings = () => {
                             disabled={isUploading}
                         />
                     </div>
-                    <p className="text-sm text-gray-500 mt-2 text-center">
+                    <p className="text-xs md:text-sm text-gray-500 mt-2 text-center">
                         Click on profile to {profilePic ? "change" : "set"} your
                         image
                     </p>
@@ -147,33 +147,33 @@ const AccountSettings = () => {
 
                 {/* User Info */}
                 <div className="flex flex-col lg:flex-row gap-2 w-full md:w-2/3">
-                    <div className="flex flex-col w-full">
-                        <label className="text-sm font-semibold mb-1">
+                    <div className="flex flex-col w-full mb-2 md:mb-0">
+                        <label className="text-xs md:text-sm font-semibold mb-1">
                             Username
                         </label>
                         <input
                             type="text"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
-                            className="w-full p-2 border border-gray-300 rounded"
+                            className="w-full p-2 border border-gray-300 rounded text-sm md:text-base"
                         />
                     </div>
 
                     <div className="flex flex-col w-full">
-                        <label className="text-sm font-semibold mb-1">
+                        <label className="text-xs md:text-sm font-semibold mb-1">
                             Email
                         </label>
                         <input
                             type="text"
                             value={email}
                             readOnly
-                            className="w-full p-2 border border-gray-300 rounded bg-gray-100 cursor-not-allowed"
+                            className="w-full p-2 border border-gray-300 rounded bg-gray-100 cursor-not-allowed text-sm md:text-base"
                         />
                     </div>
                 </div>
 
                 {/* Save Button */}
-                <div className="w-full lg:w-1/4 mt-7 mr-2">
+                <div className="w-full lg:w-1/4 mt-4 md:mt-7 mr-0 md:mr-2">
                     <button
                         onClick={handleSave}
                         disabled={isSubmitting}
@@ -185,7 +185,7 @@ const AccountSettings = () => {
             </div>
 
             {/* Subscription Section */}
-            <div className="mt-12">
+            <div className="mt-8 md:mt-12">
                 <Subscription />
             </div>
         </div>

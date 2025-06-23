@@ -54,41 +54,40 @@ const Register = () => {
     }, [loginUserData.isSuccess, loginUserData.isError]);
 
     return (
-        <div className="w-full flex font-roboto">
+        <div className="w-full min-h-screen flex flex-col md:flex-row font-roboto">
             {/* landing page section */}
-            <div className="landing-section w-[68%]">
-                <div className="w-full h-full flex flex-col gap-12 p-12">
-                    <div className="flex gap-[5px]">
-                        <CustomQLogo stroke="#ffffff" width={36} height={36} />
-                        <h2 className="text-center text-3xl font-bold text-[#ffffff]">
+            <div className="landing-section w-full md:w-[68%] h-[320px] md:h-auto flex items-center bg-[#7e22ce] md:bg-transparent">
+                <div className="w-full h-full flex flex-col gap-8 md:gap-12 p-6 md:p-12 justify-center">
+                    <div className="flex gap-[5px] items-center">
+                        <CustomQLogo stroke="#ffffff" width={32} height={32} />
+                        <h2 className="text-2xl md:text-3xl font-bold text-[#ffffff]">
                             Ques.<span className="font-thin">AI</span>
                         </h2>
                     </div>
-                    <p className="mt-2 text-5xl text-[#ffffff]">
-                        Your podcast <br /> will no longer <br /> be just a
-                        hobby.
+                    <p className="mt-2 text-3xl md:text-5xl text-[#ffffff] leading-tight">
+                        Your podcast <br className="hidden md:block" /> will no
+                        longer <br className="hidden md:block" /> be just a hobby.
                     </p>
-                    <p className="text-[1.35rem] text-[#ffffff]">
-                        Supercharge Your Distribution <br /> using our AI
+                    <p className="text-base md:text-[1.35rem] text-[#ffffff]">
+                        Supercharge Your Distribution <br className="hidden md:block" /> using our AI
                         assistant!
                     </p>
                 </div>
             </div>
 
             {/* Signup / login section */}
-
-            <div className="min-h-screen w-[32%] bg-[#f5f6fa] flex flex-col justify-center ">
-                <div className="flex justify-center">
-                    <CustomQLogo stroke="#7e22ce" width={80} height={80} />
+            <div className="w-full md:w-[32%] bg-[#f5f6fa] flex flex-col justify-center min-h-[400px] md:min-h-screen">
+                <div className="flex justify-center pt-8 md:pt-0">
+                    <CustomQLogo stroke="#7e22ce" width={64} height={64} />
                 </div>
 
                 <div className="py-4 px-4 sm:rounded-lg sm:px-10">
                     <div className="mb-6 flex flex-col items-center justify-center">
-                        <h2 className="text-center text-3xl font-normal text-[#7e22ce]">
+                        <h2 className="text-center text-2xl md:text-3xl font-normal text-[#7e22ce]">
                             Welcome to
                         </h2>
                         <div className="flex">
-                            <h2 className="text-center text-[1.68rem] font-bold text-[#7e22ce]">
+                            <h2 className="text-center text-xl md:text-[1.68rem] font-bold text-[#7e22ce]">
                                 Ques.AI
                             </h2>
                         </div>

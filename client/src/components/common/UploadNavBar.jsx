@@ -25,10 +25,10 @@ const UploadNavBar = ({ projectName, pageName }) => {
     }, [logoutMeData.isSuccess]);
 
     return (
-        <div className="w-full flex justify-between p-4 mt-4">
+        <div className="w-full flex flex-col md:flex-row justify-between p-2 md:p-4 mt-2 md:mt-4 gap-2 md:gap-0">
             {/* left section */}
             <section>
-                <div className="flex justify-center items-center font-roboto text-md font-semibold cursor-pointer">
+                <div className="flex flex-wrap justify-center items-center font-roboto text-sm md:text-md font-semibold cursor-pointer">
                     <div
                         onClick={() => navigate("/")}
                         className=" pt-1 flex items-center gap-1  text-gray-500"
@@ -51,7 +51,7 @@ const UploadNavBar = ({ projectName, pageName }) => {
             </section>
             {/* right section */}
             <section>
-                <div className="flex items-center font-roboto font-semibold gap-3">
+                <div className="flex items-center font-roboto font-semibold gap-2 md:gap-3 mt-2 md:mt-0">
                     <div className="w-10 h-10 p-2 flex justify-center items-center rounded-full border-2 border-gray-400 cursor-pointer">
                         <Bell size={22} />
                     </div>

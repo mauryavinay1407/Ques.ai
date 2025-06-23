@@ -36,19 +36,19 @@ const TsTable = () => {
     }
 
     return (
-        <div className="bg-white border-1-black border-2 font-roboto rounded-lg shadow-md p-6">
-            <h2 className="text-xl font-bold mb-4">Your Files</h2>
-            <div className="max-h-[400px] overflow-y-auto">
+        <div className="bg-white border-1-black border-2 font-roboto rounded-lg shadow-md p-2 md:p-6">
+            <h2 className="text-lg md:text-xl font-bold mb-2 md:mb-4">Your Files</h2>
+            <div className="max-h-[400px] overflow-y-auto overflow-x-auto">
                 {/* table headings */}
-                <table className="w-full">
+                <table className="w-full min-w-[600px]">
                     <thead className="bg-gray-200 text-[#7e7e7e]">
                         <tr className="rounded-md">
-                            <th className="py-2 px-4 text-left">No.</th>
-                            <th className="py-2 px-4 text-left">Name</th>
-                            <th className="py-2 px-4 text-left">
+                            <th className="py-2 px-2 md:px-4 text-left">No.</th>
+                            <th className="py-2 px-2 md:px-4 text-left">Name</th>
+                            <th className="py-2 px-2 md:px-4 text-left">
                                 Upload Date & Time
                             </th>
-                            <th className="py-2 px-4 pl-32 text-left">
+                            <th className="py-2 px-2 md:pl-32 text-left">
                                 Action
                             </th>
                         </tr>

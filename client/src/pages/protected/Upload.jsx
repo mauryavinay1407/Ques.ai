@@ -103,13 +103,13 @@ const Upload = () => {
             </ModalBox>
 
             {/* Main Content */}
-            <div className="w-full flex justify-start items-center">
+            <div className="w-full flex flex-col items-center">
                 <div className="w-11/12 my-4 ml-1">
-                    <h1 className="font-bold text-3xl font-roboto text-black">
+                    <h1 className="font-bold text-2xl md:text-3xl font-roboto text-black">
                         Add Podcast
                     </h1>
 
-                    <div className="py-5 mt-4 flex flex-wrap justify-between gap-1">
+                    <div className="py-5 mt-4 flex flex-col sm:flex-row flex-wrap justify-between gap-3">
                         {displayMethods && displayMethods.length > 0 ? (
                             displayMethods.map((item, index) => (
                                 <div
@@ -117,9 +117,9 @@ const Upload = () => {
                                     onClick={() =>
                                         handleMethodClick(item.icon, item.text)
                                     }
-                                    className="border-1-black w-5/12 shadow-lg lg:w-[30%] h-24 lg:h-32 flex items-center rounded-md border-2 mb-3 cursor-pointer"
+                                    className="border-1-black w-full sm:w-5/12 lg:w-[30%] h-24 lg:h-32 flex items-center rounded-md border-2 mb-3 cursor-pointer"
                                 >
-                                    <div className="flex w-full p-1 lg:p-2 justify-center items-center rounded-md">
+                                    <div className="flex w-full p-2 lg:p-2 justify-center items-center rounded-md">
                                         <div className="flex w-3/4 flex-col justify-start">
                                             <h1 className="font-roboto font-semibold text-md lg:text-xl">
                                                 {item.text}

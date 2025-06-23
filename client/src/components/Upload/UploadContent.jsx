@@ -46,11 +46,11 @@ const UploadInput = ({ onClose, onUpdate, icon, text }) => {
     }
 
     return (
-        <div className="bg-white p-6 rounded-lg ">
+        <div className="bg-white p-4 md:p-6 rounded-lg">
             <div className="flex justify-between items-center mb-4">
                 <div className="flex items-center gap-2">
-                    <img src={icon} className="w-7 h-7" alt="icon" />
-                    <h2 className="text-xl font-bold">{text}</h2>
+                    <img src={icon} className="w-6 h-6 md:w-7 md:h-7" alt="icon" />
+                    <h2 className="text-lg md:text-xl font-bold">{text}</h2>
                 </div>
                 <div onClick={onClose}>
                     <X
@@ -61,7 +61,7 @@ const UploadInput = ({ onClose, onUpdate, icon, text }) => {
             </div>
 
             <div className="mb-4">
-                <label htmlFor="name" className="block mb-2 font-bold">
+                <label htmlFor="name" className="block mb-2 font-bold text-sm md:text-base">
                     Name
                 </label>
                 <input
@@ -69,33 +69,33 @@ const UploadInput = ({ onClose, onUpdate, icon, text }) => {
                     id="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full p-2 border rounded"
+                    className="w-full p-2 border rounded text-sm md:text-base"
                 />
                 {errors.name && (
-                    <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                    <p className="text-red-500 text-xs md:text-sm mt-1">{errors.name}</p>
                 )}
             </div>
 
             <div className="mb-4">
-                <label htmlFor="link" className="block mb-2 font-bold">
+                <label htmlFor="link" className="block mb-2 font-bold text-sm md:text-base">
                     Link / Description
                 </label>
                 <textarea
                     id="link"
                     value={link}
                     onChange={(e) => setLink(e.target.value)}
-                    className="w-full p-2 border rounded"
+                    className="w-full p-2 border rounded text-sm md:text-base"
                     rows="3"
                 ></textarea>
                 {errors.link && (
-                    <p className="text-red-500 text-sm mt-1">{errors.link}</p>
+                    <p className="text-red-500 text-xs md:text-sm mt-1">{errors.link}</p>
                 )}
             </div>
 
             <div className="flex justify-end">
                 <button
                     onClick={handleUpdate}
-                    className="bg-gray-900 text-white px-4 py-2 rounded hover:bg-black"
+                    className="bg-gray-900 text-white px-4 py-2 rounded hover:bg-black text-sm md:text-base"
                 >
                     Update
                 </button>

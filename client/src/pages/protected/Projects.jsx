@@ -29,10 +29,10 @@ const Projects = () => {
 
     return (
         <div className="w-full min-h-screen flex justify-center">
-            <div className="w-10/12">
+            <div className="w-11/12 md:w-10/12">
                 <div className="flex justify-center w-full">
-                    <div className="pl-2 my-3 md:my-6 w-full flex justify-between">
-                        <h1 className="text-primary text-lg md:text-3xl font-roboto font-bold">
+                    <div className="pl-2 my-3 md:my-6 w-full flex flex-col md:flex-row md:justify-between gap-2">
+                        <h1 className="text-primary text-2xl md:text-3xl font-roboto font-bold">
                             Projects
                         </h1>
                         <CreateButton handleClick={handleCreateModal} />
@@ -49,7 +49,7 @@ const Projects = () => {
                 </div>
 
                 {/* project section */}
-                <div className="w-full md:h-96 flex-wrap flex justify-between gap-3 items-center">
+                <div className="w-full flex flex-wrap justify-center md:justify-between gap-3 items-center">
                     {projectsData?.data && projectsData.data.length > 0 ? (
                         projectsData.data.map((item, index) => (
                             <div
@@ -57,7 +57,7 @@ const Projects = () => {
                                 onClick={() =>
                                     navigate(`/project/upload/${item?._id}`)
                                 }
-                                className="w-5/12 md:w-3/12  flex items-center border shadow-lg border-black rounded-md min-h-24 hover:scale-110 duration-300 cursor-pointer hover:shadow-xl"
+                                className="w-full sm:w-5/12 md:w-3/12 flex items-center border shadow-lg border-black rounded-md min-h-24 hover:scale-105 md:hover:scale-110 duration-300 cursor-pointer hover:shadow-xl"
                             >
                                 <div
                                     className={`m-2 rounded-md w-1/4 h-16 ${
@@ -92,7 +92,7 @@ const Projects = () => {
                             </div>
                         ))
                     ) : (
-                        <div className="flex items-center justify-center min-h-screen">
+                        <div className="flex items-center justify-center min-h-[200px] md:min-h-screen w-full">
                             <div className="text-center">
                                 <p className="text-xl font-roboto text-gray-500">
                                     No projects available
